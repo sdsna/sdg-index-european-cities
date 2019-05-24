@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.2cce8147.chunk.css",
-    "main.js": "/static/js/main.3f13b94f.chunk.js",
-    "main.js.map": "/static/js/main.3f13b94f.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/js/2.7908df70.chunk.js": "/static/js/2.7908df70.chunk.js",
-    "static/js/2.7908df70.chunk.js.map": "/static/js/2.7908df70.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.321326ec1b03fda2b59206f3b728548f.js": "/precache-manifest.321326ec1b03fda2b59206f3b728548f.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.2cce8147.chunk.css.map": "/static/css/main.2cce8147.chunk.css.map",
-    "static/media/logo.svg": "/static/media/logo.5d5d9eef.svg"
+    "main.css": "/european-cities-sdg-index/static/css/main.2cce8147.chunk.css",
+    "main.js": "/european-cities-sdg-index/static/js/main.322bd893.chunk.js",
+    "main.js.map": "/european-cities-sdg-index/static/js/main.322bd893.chunk.js.map",
+    "runtime~main.js": "/european-cities-sdg-index/static/js/runtime~main.1b0a0ba6.js",
+    "runtime~main.js.map": "/european-cities-sdg-index/static/js/runtime~main.1b0a0ba6.js.map",
+    "static/js/2.7908df70.chunk.js": "/european-cities-sdg-index/static/js/2.7908df70.chunk.js",
+    "static/js/2.7908df70.chunk.js.map": "/european-cities-sdg-index/static/js/2.7908df70.chunk.js.map",
+    "index.html": "/european-cities-sdg-index/index.html",
+    "precache-manifest.16534585ca12ea82a0d9a0e85eb2e0d7.js": "/european-cities-sdg-index/precache-manifest.16534585ca12ea82a0d9a0e85eb2e0d7.js",
+    "service-worker.js": "/european-cities-sdg-index/service-worker.js",
+    "static/css/main.2cce8147.chunk.css.map": "/european-cities-sdg-index/static/css/main.2cce8147.chunk.css.map",
+    "static/media/logo.svg": "/european-cities-sdg-index/static/media/logo.5d5d9eef.svg"
   }
 }
