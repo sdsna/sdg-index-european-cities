@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/european-cities-sdg-index/static/css/main.2cce8147.chunk.css",
-    "main.js": "/european-cities-sdg-index/static/js/main.322bd893.chunk.js",
-    "main.js.map": "/european-cities-sdg-index/static/js/main.322bd893.chunk.js.map",
-    "runtime~main.js": "/european-cities-sdg-index/static/js/runtime~main.1b0a0ba6.js",
-    "runtime~main.js.map": "/european-cities-sdg-index/static/js/runtime~main.1b0a0ba6.js.map",
-    "static/js/2.7908df70.chunk.js": "/european-cities-sdg-index/static/js/2.7908df70.chunk.js",
-    "static/js/2.7908df70.chunk.js.map": "/european-cities-sdg-index/static/js/2.7908df70.chunk.js.map",
-    "index.html": "/european-cities-sdg-index/index.html",
-    "precache-manifest.16534585ca12ea82a0d9a0e85eb2e0d7.js": "/european-cities-sdg-index/precache-manifest.16534585ca12ea82a0d9a0e85eb2e0d7.js",
-    "service-worker.js": "/european-cities-sdg-index/service-worker.js",
-    "static/css/main.2cce8147.chunk.css.map": "/european-cities-sdg-index/static/css/main.2cce8147.chunk.css.map",
-    "static/media/logo.svg": "/european-cities-sdg-index/static/media/logo.5d5d9eef.svg"
+    "main.css": "/sdg-index-european-cities/static/css/main.2cce8147.chunk.css",
+    "main.js": "/sdg-index-european-cities/static/js/main.69fcb7a9.chunk.js",
+    "main.js.map": "/sdg-index-european-cities/static/js/main.69fcb7a9.chunk.js.map",
+    "runtime~main.js": "/sdg-index-european-cities/static/js/runtime~main.11207ceb.js",
+    "runtime~main.js.map": "/sdg-index-european-cities/static/js/runtime~main.11207ceb.js.map",
+    "static/js/2.7908df70.chunk.js": "/sdg-index-european-cities/static/js/2.7908df70.chunk.js",
+    "static/js/2.7908df70.chunk.js.map": "/sdg-index-european-cities/static/js/2.7908df70.chunk.js.map",
+    "index.html": "/sdg-index-european-cities/index.html",
+    "precache-manifest.0e6694a4cdfb9f879bd20992f919c4ca.js": "/sdg-index-european-cities/precache-manifest.0e6694a4cdfb9f879bd20992f919c4ca.js",
+    "service-worker.js": "/sdg-index-european-cities/service-worker.js",
+    "static/css/main.2cce8147.chunk.css.map": "/sdg-index-european-cities/static/css/main.2cce8147.chunk.css.map",
+    "static/media/logo.svg": "/sdg-index-european-cities/static/media/logo.5d5d9eef.svg"
   }
 }
