@@ -1,9 +1,14 @@
 import React, { PureComponent } from 'react'
 import Typography from '@material-ui/core/Typography'
+import Paper from '@material-ui/core/Paper'
 import CityIndex from '../components/CityIndex'
 import Popper from '@material-ui/core/Popper'
+import GridList from '@material-ui/core/GridList';
 import styled from 'styled-components'
+import Box from '@material-ui/core/Box';
 
+
+import SDGTile from '../components/SDGTile'
 import getSDGLabel from '../helpers/getSDGLabel'
 
 const Tooltip = styled(Popper)`
@@ -67,15 +72,25 @@ class HomePage extends PureComponent {
   render() {
     const { tooltipShow, tooltipAnchor, tooltipLabel, tooltipScore } = this.state
 
+    const goals1to13  = [...Array(13).keys()].map(goal => <SDGTile key={goal+1} sdg={goal+1} />)
+    const goals15to16 = [...Array(2).keys()].map(goal => <SDGTile key={goal+15} sdg={goal+15} />)
+    const sdgTile     = <SDGTile key={18} sdg='18' />
+
+    const tiles = goals1to13.concat(goals15to16, sdgTile)
+
     return (
-      <div>
-        <Typography variant="h4" gutterBottom>
-          Sustainable Development Goals
-        </Typography>
-        <hr/>
-        <Typography variant='body1'>
-          Select one of the 15 SDGs to see it on the map.
-        </Typography>
+      <Paper style={{padding: 24}}>
+        <Box marginBottom={5}>
+          <Typography variant="h5" gutterBottom>
+            Sustainable Development Goals
+          </Typography>
+          <Typography variant='body1' style={{color: '#6c757d'}} gutterBottom>
+            Select one of the 15 SDGs to see it on the map.
+          </Typography>
+          <GridList cols={8} spacing={8} cellHeight='auto'>
+            {tiles}
+          </GridList>
+        </Box>
 
         <CityIndex showTooltip={this.showTooltip} hideTooltip={this.hideTooltip} />
         <Tooltip
@@ -90,9 +105,13 @@ class HomePage extends PureComponent {
               offset: '0, 7px'
             }
           }}>
-          <div><strong>{tooltipLabel}</strong>: {tooltipScore}</div>
+          <Typography variant='body2' paragraph={false}>
+            <span style={{fontWeight: 500}}>
+              {tooltipLabel}
+            </span>: {tooltipScore}
+          </Typography>
         </Tooltip>
-      </div>
+      </Paper>
     );
   }
 }
