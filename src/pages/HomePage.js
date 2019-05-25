@@ -1,13 +1,12 @@
 import React, { PureComponent } from 'react'
 import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
-import CityIndex from '../components/CityIndex'
 import Popper from '@material-ui/core/Popper'
 import GridList from '@material-ui/core/GridList';
-import styled from 'styled-components'
 import Box from '@material-ui/core/Box';
+import styled from 'styled-components'
 
-
+import CityIndex from '../components/CityIndex'
 import SDGTile from '../components/SDGTile'
 import getSDGLabel from '../helpers/getSDGLabel'
 

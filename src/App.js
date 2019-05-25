@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography'
 import styled, { createGlobalStyle } from 'styled-components'
 import HomePage from './pages/HomePage'
 import CountryPage from './pages/CountryPage'
+import Map from './components/Map'
 
 const SiteHeader = styled(AppBar)`
   && {
@@ -114,6 +115,8 @@ class App extends Component {
             </Toolbar>
           </Container>
         </SiteHeader>
+
+        <Map />
 
         <Container>
           <Route exact path="/" component={HomePage} />

@@ -13,6 +13,7 @@
     "react-popper-tooltip": "^2.8.3",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
+    "react-svgmt": "^1.1.8",
     "styled-components": "^4.2.0"
   },
   "scripts": {
