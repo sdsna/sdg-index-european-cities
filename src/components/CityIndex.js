@@ -1,44 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import Typography from '@material-ui/core/Typography'
 import MUIDataTable from "mui-datatables"
 
 import SDGBar from './SDGBar'
-
-const columns = [
-  {
-    name: "City",
-    options: {
-      sort: true
-    },
-  },
-  {
-    name: "Region",
-    options: {
-      sort: true
-    },
-  },
-  {
-    name: "SDGs",
-    options: {
-      sort: false,
-      customBodyRender: (value, tableMeta, updateValue) => {
-        return <SDGBar scores={value} />;
-      }
-    },
-  },
-  {
-    name: "Rank",
-    options: {
-      sort: true
-    },
-  },
-  {
-    name: "Score",
-    options: {
-      sort: false
-    },
-  },
-]
 
 const options = {
   download: false,
@@ -50,13 +14,15 @@ const options = {
   elevation: 0,
   rowsPerPage: 500,
   search: false,
-  customFooter: (count, page, rowsPerPage, changeRowsPerPage, changePage) => {}
+  customFooter: (count, page, rowsPerPage, changeRowsPerPage, changePage) => {
+    return <tbody></tbody>
+  }
 };
 
-class CityIndex extends Component {
+class CityIndex extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {data: []};
+    this.state = { data: [] };
   }
 
   componentDidMount() {
@@ -70,16 +36,15 @@ class CityIndex extends Component {
       .then(data => this.cityDataLoaded(data));
   }
 
-  cityDataLoaded = (cities) => {
-    this.setState({
-      data:
-        cities.map(city => {
+  cityDataLoaded = cities => {
+    const data =
+      cities.map(city => {
         return [city['city'], city['region'],
                this.pluckFromJson(city, ['SDG1', 'SDG2', 'SDG3', 'SDG4', 'SDG5', 'SDG6', 'SDG7', 'SDG8', 'SDG9', 'SDG10', 'SDG11', 'SDG12', 'SDG13', 'SDG15', 'SDG16']),
                Number(city['rank']), Number(city['score'])]
       })
 
-    })
+    this.setState({ data: data })
   }
 
   pluckFromJson(json, keys) {
@@ -92,6 +57,46 @@ class CityIndex extends Component {
 
   render() {
     const { data } = this.state
+
+    const { showTooltip, hideTooltip } = this.props;
+
+    const columns = [
+      {
+        name: "City",
+        options: {
+          sort: true
+        },
+      },
+      {
+        name: "Region",
+        options: {
+          sort: true
+        },
+      },
+      {
+        name: "SDGs",
+        options: {
+          sort: false,
+          customBodyRender: (value, tableMeta, updateValue) => {
+            return <SDGBar scores={value}
+                           showTooltip={showTooltip}
+                           hideTooltip={hideTooltip}/>;
+          }
+        },
+      },
+      {
+        name: "Rank",
+        options: {
+          sort: true
+        },
+      },
+      {
+        name: "Score",
+        options: {
+          sort: false
+        },
+      },
+    ]
 
     return (
       <div>
