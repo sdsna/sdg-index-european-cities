@@ -76,6 +76,10 @@ class Map extends PureComponent {
           placement="top"
           transition
           modifiers={{
+            flip: {
+              // our arrow is always pointing down, so do not flip tooltip
+              enabled: false
+            },
             offset: {
               enabled: true,
               offset: '0, 10px'

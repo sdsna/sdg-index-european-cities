@@ -103,6 +103,10 @@ class HomePage extends PureComponent {
           anchorEl={tooltipAnchor}
           placement="top"
           modifiers={{
+            flip: {
+              // our arrow is always pointing down, so do not flip tooltip
+              enabled: false
+            },
             offset: {
               enabled: true,
               offset: '0, 7px'
