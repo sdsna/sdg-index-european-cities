@@ -81,10 +81,10 @@ class Map extends PureComponent {
               offset: '0, 10px'
             }
           }}>
-          <Typography variant='body2' paragraph={false}>
-            <div style={{fontWeight: 500}}>
-              {tooltipCity}
-            </div>
+          <Typography variant='body2' style={{fontWeight: 500}}>
+            {tooltipCity}
+          </Typography>
+          <Typography variant='body2'>
             <span>
               {tooltipLabel}:&nbsp;
             </span>
