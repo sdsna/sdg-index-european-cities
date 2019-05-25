@@ -131,7 +131,7 @@ class App extends Component {
           </Container>
         </SiteHeader>
 
-        <Map />
+        <Map cities={cities} />
 
         <Container>
           <Route
