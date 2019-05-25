@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import { HashRouter, Route, Link } from "react-router-dom";
 import Container from '@material-ui/core/Container'
-import Typography from '@material-ui/core/Typography'
+import HomePage from './pages/HomePage'
+import CountryPage from './pages/CountryPage'
 
 class App extends Component {
   render() {
@@ -18,16 +19,13 @@ class App extends Component {
 
             <hr />
 
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
+            <Route exact path="/" component={HomePage} />
+            <Route path="/:country" component={CountryPage} />
           </div>
         </Container>
       </HashRouter>
     );
   }
 }
-
-const Home = () => <div><Typography variant="h2" gutterBottom>Home</Typography></div>
-const About = () => <div><h2>About</h2></div>
 
 export default App;
