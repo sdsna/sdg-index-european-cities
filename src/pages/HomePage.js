@@ -79,7 +79,7 @@ class HomePage extends PureComponent {
     const tiles = goals1to13.concat(goals15to16, sdgTile)
 
     return (
-      <Paper style={{padding: 24}}>
+      <Paper style={{padding: 24, position: 'relative'}}>
         <Box marginBottom={5}>
           <Typography variant="h5" gutterBottom>
             Sustainable Development Goals

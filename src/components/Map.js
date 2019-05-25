@@ -66,7 +66,7 @@ class Map extends PureComponent {
     const { tooltipShow, tooltipAnchor, tooltipCity, tooltipLabel, tooltipScore } = this.state
 
     return(
-      <Container>
+      <Container style={{position: "sticky", top: 0}}>
         <MapDisplay
           showTooltip={this.showTooltip}
           hideTooltip={this.hideTooltip} />
