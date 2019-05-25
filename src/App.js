@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { HashRouter, Route, Link } from "react-router-dom";
 import AppBar from '@material-ui/core/AppBar'
+import ButtonBase from '@material-ui/core/ButtonBase'
 import Container from '@material-ui/core/Container'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
@@ -12,11 +13,15 @@ const SiteHeader = styled(AppBar)`
   && {
     box-shadow: 0 1px 12px -3px rgba(0,0,0,.1);
     background: white;
-    padding: 8px 0;
   }
 
   h6 {
     font-weight: 400;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 `
 
@@ -76,6 +81,17 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
+const ToolbarButton = styled(ButtonBase)`
+  && {
+    text-align: left;
+    padding: 16px;
+    display: flex;
+    align-self: stretch;
+    flex-direction: column;
+    align-items: start;
+  }
+`
+
 class App extends Component {
   render() {
     return (
@@ -83,30 +99,25 @@ class App extends Component {
         <SiteHeader position="static" color="default">
         <Container style={{padding: 0}}>
           <Toolbar>
-              <div style={{flexGrow: 1}}>
-                <Typography variant="h6" color="inherit">
-                  European Cities SDG Index 2019
-                </Typography>
-                <Typography variant="body1" style={{color: '#6c757d'}} gutterBottom>
-                  Prototype Version
-                </Typography>
-              </div>
-              <img src='/images/SDSN-logo.png' alt='SDSN logo' style={{maxHeight: 50}}/>
+            <ToolbarButton component={Link} to="/">
+              <Typography variant="h6" color="inherit">
+                European Cities SDG Index 2019
+              </Typography>
+              <Typography variant="body1" style={{color: '#6c757d'}} gutterBottom>
+                Prototype Version
+              </Typography>
+            </ToolbarButton>
+            <ToolbarButton style={{flexGrow: 1}} disabled/>
+            <ToolbarButton component='a' href="http://unsdsn.org/" target='_blank' rel='noopener noreferrer'>
+              <img src='/images/SDSN-logo.png' alt='SDSN logo' style={{maxHeight: 60}}/>
+            </ToolbarButton>
             </Toolbar>
           </Container>
         </SiteHeader>
+
         <Container>
-          <div>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About</Link></li>
-            </ul>
-
-            <hr />
-
-            <Route exact path="/" component={HomePage} />
-            <Route path="/:country" component={CountryPage} />
-          </div>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/:country" component={CountryPage} />
         </Container>
         <GlobalStyle />
       </HashRouter>
