@@ -8,7 +8,6 @@ import styled from 'styled-components'
 
 import CityIndex from '../components/CityIndex'
 import SDGTile from '../components/SDGTile'
-import getSDGLabel from '../helpers/getSDGLabel'
 
 const Tooltip = styled(Popper)`
   font-size: .8rem;
@@ -58,7 +57,7 @@ class HomePage extends PureComponent {
       tooltipShow: true,
       tooltipAnchor: currentTarget,
       tooltipScore: currentTarget.getAttribute('data-score'),
-      tooltipLabel: getSDGLabel(currentTarget.getAttribute('data-sdg'))
+      tooltipLabel: currentTarget.getAttribute('data-label')
     }));
   };
 
@@ -69,6 +68,8 @@ class HomePage extends PureComponent {
   };
 
   render() {
+    const { cities } = this.props
+
     const { tooltipShow, tooltipAnchor, tooltipLabel, tooltipScore } = this.state
 
     const goals1to13  = [...Array(13).keys()].map(goal => <SDGTile key={goal+1} sdg={goal+1} />)
@@ -91,7 +92,10 @@ class HomePage extends PureComponent {
           </GridList>
         </Box>
 
-        <CityIndex showTooltip={this.showTooltip} hideTooltip={this.hideTooltip} />
+        <CityIndex
+          cities={cities}
+          showTooltip={this.showTooltip}
+          hideTooltip={this.hideTooltip} />
         <Tooltip
           className={tooltipShow ? 'show' : 'hidden'}
           open={Boolean(tooltipAnchor)}

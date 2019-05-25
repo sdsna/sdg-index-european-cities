@@ -73,7 +73,7 @@ const customHead = ({index, sort, sortDirection, label}, sortColumn) => {
     switch(sortDirection) {
       case 'asc': return <ArrowUpwardIcon />
       case 'desc': return <ArrowDownwardIcon />
-      default: return <SvgIcon />
+      default: return <SvgIcon children={<div/>}/>
     }
   })();
 
@@ -106,44 +106,7 @@ const options = {
 };
 
 class CityIndex extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = { data: [] };
-  }
-
-  componentDidMount() {
-    fetch('/data/cities.json')
-      .then(response => {
-        if (response.status >= 400) {
-          throw new Error("Bad response from server");
-        }
-        return response.json();
-      })
-      .then(data => this.cityDataLoaded(data));
-  }
-
-  cityDataLoaded = cities => {
-    const data =
-      cities.map(city => {
-        return [city['city'], city['region'],
-               this.pluckFromJson(city, ['SDG1', 'SDG2', 'SDG3', 'SDG4', 'SDG5', 'SDG6', 'SDG7', 'SDG8', 'SDG9', 'SDG10', 'SDG11', 'SDG12', 'SDG13', 'SDG15', 'SDG16']),
-               Number(city['rank']), Number(city['score'])]
-      })
-
-    this.setState({ data: data })
-  }
-
-  pluckFromJson(json, keys) {
-    var output = {}
-    keys.forEach(key => {
-      output[key] = json[key]
-    })
-    return output
-  }
-
   render() {
-    const { data } = this.state
-
     const { showTooltip, hideTooltip } = this.props;
 
     const columns = [
@@ -171,9 +134,9 @@ class CityIndex extends PureComponent {
         options: {
           sort: false,
           customBodyRender: (value, tableMeta, updateValue) => {
-            return <SDGBar scores={value}
+            return <SDGBar sdgs={value}
                            showTooltip={showTooltip}
-                           hideTooltip={hideTooltip}/>;
+                           hideTooltip={hideTooltip}/>
           },
           customHeadRender: customHead
         },
@@ -194,6 +157,11 @@ class CityIndex extends PureComponent {
         },
       },
     ]
+
+    const { cities } = this.props
+    const data = cities && cities.map(city => {
+      return [city.name, city.region, city.sdgs, city.rank, city.score]
+    })
 
     return (
       <div>

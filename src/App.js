@@ -10,6 +10,8 @@ import HomePage from './pages/HomePage'
 import CountryPage from './pages/CountryPage'
 import Map from './components/Map'
 
+import loadCities from './helpers/loadCities'
+
 const SiteHeader = styled(AppBar)`
   && {
     box-shadow: 0 1px 12px -3px rgba(0,0,0,.1);
@@ -94,7 +96,20 @@ const ToolbarButton = styled(ButtonBase)`
 `
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { cities: [] };
+  }
+
+  componentDidMount() {
+    loadCities(cities => {
+      this.setState({ cities: cities })
+    })
+  }
+
   render() {
+    const { cities } = this.state
+
     return (
       <HashRouter basename="/">
         <SiteHeader position="static" color="default">
@@ -119,7 +134,11 @@ class App extends Component {
         <Map />
 
         <Container>
-          <Route exact path="/" component={HomePage} />
+          <Route
+            exact
+            path="/"
+            render={(props) => <HomePage {...props} cities={cities} />}
+            />
           <Route path="/:country" component={CountryPage} />
         </Container>
         <GlobalStyle />
