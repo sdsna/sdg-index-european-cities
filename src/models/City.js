@@ -6,6 +6,11 @@ class City {
     this.rank = rank
     this.sdgs = sdgs
   }
+
+  // Return the SDG instance
+  getSDG(sdg) {
+    return this.sdgs[Number(sdg) - 1]
+  }
 }
 
 export default City

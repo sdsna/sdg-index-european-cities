@@ -98,7 +98,7 @@ const ToolbarButton = styled(ButtonBase)`
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { cities: [] };
+    this.state = { cities: [], focus: null };
   }
 
   componentDidMount() {
@@ -107,8 +107,19 @@ class App extends Component {
     })
   }
 
+  setMapFocus = event => {
+    const { currentTarget } = event;
+    const newFocus = currentTarget.getAttribute('data-focus')
+
+    this.setState({ focus: newFocus })
+  }
+
+  resetMapFocus = event => {
+    this.setState({ focus: null })
+  }
+
   render() {
-    const { cities } = this.state
+    const { focus, cities } = this.state
 
     return (
       <HashRouter basename="/">
@@ -131,14 +142,22 @@ class App extends Component {
           </Container>
         </SiteHeader>
 
-        <Map cities={cities} />
+        <Map
+          focus={focus}
+          cities={cities} />
 
         <Container>
           <Route
             exact
             path="/"
-            render={(props) => <HomePage {...props} cities={cities} />}
-            />
+            render={(props) => {
+              return <HomePage
+                        {...props}
+                        focus={focus}
+                        setMapFocus={this.setMapFocus}
+                        resetMapFocus={this.resetMapFocus}
+                        cities={cities} />
+            }} />
           <Route path="/:country" component={CountryPage} />
         </Container>
         <GlobalStyle />

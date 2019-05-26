@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import ButtonBase from '@material-ui/core/ButtonBase'
 import GridListTile from '@material-ui/core/GridListTile'
 import styled from 'styled-components'
 
@@ -13,11 +14,15 @@ const FullSizeImage = styled.img`
 
 class SDGTile extends PureComponent {
   render() {
-    const { sdg, ...otherProps } = this.props
+    const { sdg, clickHandler, ...otherProps } = this.props
 
     return(
       <GridListTile cols={1} {...otherProps}>
-        <FullSizeImage src={`/images/sdg${sdg}.png`} alt={`SDG ${sdg} icon`} className={`bg sdg${sdg}`} />
+        <ButtonBase
+          onClick={clickHandler}
+          data-focus={sdg} >
+          <FullSizeImage src={`/images/sdg${sdg}.png`} alt={`SDG ${sdg} icon`} className={`bg sdg${sdg}`} />
+        </ButtonBase>
       </GridListTile>
     );
   }

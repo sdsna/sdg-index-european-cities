@@ -48,9 +48,9 @@ class Map extends PureComponent {
     this.setState(state => ({
       tooltipShow: true,
       tooltipAnchor: currentTarget,
-      tooltipScore: '55.4',
-      tooltipCity: 'London',
-      tooltipLabel: 'Overall Score'
+      tooltipScore: currentTarget.getAttribute('data-score'),
+      tooltipCity: currentTarget.getAttribute('data-city'),
+      tooltipLabel: currentTarget.getAttribute('data-label')
     }));
   };
 
@@ -61,13 +61,15 @@ class Map extends PureComponent {
   };
 
   render() {
-    // const { cities } = this.props
+    const { focus, cities } = this.props
 
     const { tooltipShow, tooltipAnchor, tooltipCity, tooltipLabel, tooltipScore } = this.state
 
     return(
       <Container style={{position: "sticky", top: 0}}>
         <MapDisplay
+          cities={cities}
+          focus={focus}
           showTooltip={this.showTooltip}
           hideTooltip={this.hideTooltip} />
         <Tooltip

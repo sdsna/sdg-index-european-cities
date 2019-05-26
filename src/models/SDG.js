@@ -19,9 +19,10 @@ const SDG_LABELS = [
 ]
 
 class SDG {
-  constructor({number, score}) {
+  constructor({number, score, status}) {
     this.number = number
     this.score = score
+    this.status = status
   }
 
   getLabel() {

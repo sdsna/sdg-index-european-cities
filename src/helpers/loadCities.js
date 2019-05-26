@@ -7,7 +7,8 @@ const initCity = city => {
   const sdgs = [...Array(17).keys()].map(x => ++x).map(index => {
     return new SDG({
       number: Number(index),
-      score:  Number(city[`SDG${index}`])
+      score:  Number(city[`SDG${index}`]),
+      status: city[`Dashboard SDG${index}`]
     })
   })
 

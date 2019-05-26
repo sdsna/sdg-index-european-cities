@@ -68,15 +68,23 @@ class HomePage extends PureComponent {
   };
 
   render() {
-    const { cities } = this.props
+    const { focus, resetMapFocus, setMapFocus, cities } = this.props
 
     const { tooltipShow, tooltipAnchor, tooltipLabel, tooltipScore } = this.state
 
-    const goals1to13  = [...Array(13).keys()].map(goal => <SDGTile key={goal+1} sdg={goal+1} />)
-    const goals15to16 = [...Array(2).keys()].map(goal => <SDGTile key={goal+15} sdg={goal+15} />)
-    const sdgTile     = <SDGTile key={18} sdg='18' />
+    const goals1to13  = [...Array(13).keys()].map(goal => <SDGTile clickHandler={setMapFocus} key={goal+1} sdg={goal+1} />)
+    const goals15to16 = [...Array(2).keys()].map(goal => <SDGTile clickHandler={setMapFocus} key={goal+15} sdg={goal+15} />)
+    const sdgTile     = <SDGTile clickHandler={resetMapFocus} key={18} sdg='18' />
 
     const tiles = goals1to13.concat(goals15to16, sdgTile)
+
+    const resetFocus =
+      <span>
+        &nbsp;
+        <span onClick={resetMapFocus} style={{color: '#0000EE', textDecoration: 'underline', cursor: 'pointer'}}>
+          or display the overall scores
+        </span>
+      </span>
 
     return (
       <Paper style={{padding: 24, position: 'relative'}}>
@@ -85,7 +93,9 @@ class HomePage extends PureComponent {
             Sustainable Development Goals
           </Typography>
           <Typography variant='body1' style={{color: '#6c757d'}} gutterBottom>
-            Select one of the 15 SDGs to see it on the map.
+            Select one of the 15 SDGs to see it on the map
+            {focus ? resetFocus : null}
+            .
           </Typography>
           <GridList cols={8} spacing={8} cellHeight='auto'>
             {tiles}
