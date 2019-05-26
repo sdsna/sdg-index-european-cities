@@ -7,7 +7,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import styled, { createGlobalStyle } from 'styled-components'
 import HomePage from './pages/HomePage'
-import CountryPage from './pages/CountryPage'
+import CityPage from './pages/CityPage'
 import Map from './components/Map'
 
 import loadCities from './helpers/loadCities'
@@ -158,7 +158,16 @@ class App extends Component {
                         resetMapFocus={this.resetMapFocus}
                         cities={cities} />
             }} />
-          <Route path="/:country" component={CountryPage} />
+          <Route
+            path="/:city"
+            render={(props) => {
+              return <CityPage
+                        {...props}
+                        focus={focus}
+                        setMapFocus={this.setMapFocus}
+                        resetMapFocus={this.resetMapFocus}
+                        cities={cities} />
+            }} />
         </Container>
         <GlobalStyle />
       </HashRouter>
