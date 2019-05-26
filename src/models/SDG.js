@@ -48,10 +48,11 @@ const COLOR_SCHEME = [{
 
 
 class SDG {
-  constructor({number, score, status}) {
-    this.number = number
-    this.score = score
-    this.status = status
+  constructor({number, score, status, indicators}) {
+    this.number     = number
+    this.score      = score
+    this.status     = status
+    this.indicators = indicators || []
   }
 
   static colorScheme() {

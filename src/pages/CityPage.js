@@ -42,6 +42,7 @@ class CityPage extends Component {
 
         <IndicatorPerformanceSection
           display={focus ? true : false}
+          {...{city, focus}}
           />
 
       </Paper>
