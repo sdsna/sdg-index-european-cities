@@ -2,12 +2,11 @@ import React, { PureComponent } from 'react'
 import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
 import Popper from '@material-ui/core/Popper'
-import GridList from '@material-ui/core/GridList';
 import Box from '@material-ui/core/Box';
 import styled from 'styled-components'
 
+import SDGTileCollection from '../components/SDGTileCollection'
 import CityIndex from '../components/CityIndex'
-import SDGTile from '../components/SDGTile'
 
 const Tooltip = styled(Popper)`
   font-size: .8rem;
@@ -72,12 +71,6 @@ class HomePage extends PureComponent {
 
     const { tooltipShow, tooltipAnchor, tooltipLabel, tooltipScore } = this.state
 
-    const goals1to13  = [...Array(13).keys()].map(goal => <SDGTile clickHandler={setMapFocus} key={goal+1} sdg={goal+1} />)
-    const goals15to16 = [...Array(2).keys()].map(goal => <SDGTile clickHandler={setMapFocus} key={goal+15} sdg={goal+15} />)
-    const sdgTile     = <SDGTile clickHandler={resetMapFocus} key={18} sdg='18' />
-
-    const tiles = goals1to13.concat(goals15to16, sdgTile)
-
     const resetFocus =
       <span>
         &nbsp;
@@ -97,9 +90,10 @@ class HomePage extends PureComponent {
             {focus ? resetFocus : null}
             .
           </Typography>
-          <GridList cols={8} spacing={8} cellHeight='auto'>
-            {tiles}
-          </GridList>
+          <SDGTileCollection
+            columns={8}
+            exclude={[14, 17]}
+            {...{setMapFocus, resetMapFocus}} />
         </Box>
 
         <CityIndex
