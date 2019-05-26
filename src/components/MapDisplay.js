@@ -23,18 +23,24 @@ class MapDisplay extends PureComponent {
   }
 
   getCityColor(city, focus) {
-    if(focus === null)
-      return 'black'
+    if(focus === null) {
+      const score = city.score
+
+      // find the correct HEX value for the score from color scheme
+      const { colorSchemeOverallScore } = this.props
+      const option = colorSchemeOverallScore.find(option => score > option.threshold)
+
+      return option.hex || 'black'
+    }
     else {
+      // get the city's SDG
       const sdg = city.getSDG(focus)
-      switch(sdg.status) {
-        case 'green':     return '#006c00'
-        case 'yellow':    return '#ffea00'
-        case 'orange':    return '#ff7500'
-        case 'red':       return '#c90000'
-        case 'gray':      return '#5a5a5a'
-        default:          return 'black'
-      }
+
+      // find the correct HEX value for that color from colorSchemeGoals
+      const { colorSchemeGoals } = this.props
+      const option = colorSchemeGoals.find(option => option.color === sdg.status)
+
+      return option.hex || 'black'
     }
   }
 

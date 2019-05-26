@@ -25,8 +25,13 @@ class SDG {
     this.status = status
   }
 
+  // returns the label for the given SDG number, such as 'No poverty' for 1
+  static getLabel(number) {
+    return SDG_LABELS[Number(number) - 1]
+  }
+
   getLabel() {
-    return SDG_LABELS[this.number - 1]
+    return this.constructor.getLabel(this.number)
   }
 }
 

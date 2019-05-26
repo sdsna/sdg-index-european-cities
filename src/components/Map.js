@@ -3,7 +3,66 @@ import Container from '@material-ui/core/Container'
 import Popper from '@material-ui/core/Popper'
 import Typography from '@material-ui/core/Typography'
 import styled from 'styled-components'
+
+import SDG from '../models/SDG'
+import MapLegend from './MapLegend'
 import MapDisplay from './MapDisplay'
+
+const colorSchemeGoals = [{
+    color: 'green',
+    hex: '#009c00',
+    description: 'SDG achieved'
+  },{
+    color: 'yellow',
+    hex: '#ffea00',
+    description: 'Challenges remain'
+  },{
+    color: 'orange',
+    hex: '#ff7500',
+    description: 'Significant challenges remain'
+  },{
+    color: 'red',
+    hex: '#c90000',
+    description: 'Major challenges remain'
+  },{
+    color: 'gray',
+    hex: '#5a5a5a',
+    description: 'Data missing'
+  }
+]
+
+const colorSchemeOverallScore = [{
+    color: 'green',
+    hex: '#009c00',
+    description: '> 70',
+    threshold: 70
+  },{
+    color: 'light-green',
+    hex: '#60e160',
+    description: '65 - 70',
+    threshold: 65
+  },{
+    color: 'lime',
+    hex: '#d5ff00',
+    description: '60- 65',
+    threshold: 60
+  },{
+    color: 'yellow',
+    hex: '#ffea00',
+    description: '55 - 60',
+    threshold: 55
+  },{
+    color: 'orange',
+    hex: '#ff7500',
+    description: '50 - 55',
+    threshold: 50
+  },{
+    color: 'red',
+    hex: '#c90000',
+    description: '< 50',
+    threshold: 0
+  }
+]
 
 const Tooltip = styled(Popper)`
   font-size: .8rem;
@@ -67,9 +126,15 @@ class Map extends PureComponent {
 
     return(
       <Container style={{position: "sticky", top: 0}}>
+        <MapLegend
+          title={focus ? SDG.getLabel(focus) : 'SDG Index Score'}
+          colorScheme={focus ? colorSchemeGoals : colorSchemeOverallScore} />
+
         <MapDisplay
           cities={cities}
           focus={focus}
+          colorSchemeGoals={colorSchemeGoals}
+          colorSchemeOverallScore={colorSchemeOverallScore}
           showTooltip={this.showTooltip}
           hideTooltip={this.hideTooltip} />
         <Tooltip
