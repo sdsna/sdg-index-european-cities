@@ -52,7 +52,7 @@ class MapDisplay extends PureComponent {
 
     const proxies = cities && cities.map(city => {
       return <SvgProxy  key={city.name.toLowerCase()}
-                        selector={`#${city.name.toLowerCase()}`}
+                        selector={`#${city.slug()}`}
                         data-score={this.getCityScore(city, focus)}
                         data-label={this.getScoreLabel(city, focus)}
                         data-city={city.name}

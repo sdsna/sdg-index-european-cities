@@ -11,6 +11,12 @@ class City {
   getSDG(sdg) {
     return this.sdgs[Number(sdg) - 1]
   }
+
+  // Return lowercase slug without any spaces
+  // The Hague -> thehague
+  slug() {
+    return this.name.toLowerCase().replace(/ /g,'')
+  }
 }
 
 export default City
