@@ -17,6 +17,11 @@ class City {
   slug() {
     return this.name.toLowerCase().replace(/ /g,'')
   }
+
+  // Return the url for the city
+  url() {
+    return `/${this.slug()}`
+  }
 }
 
 export default City

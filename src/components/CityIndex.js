@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { Link } from "react-router-dom"
 import ButtonBase from '@material-ui/core/ButtonBase'
 import Typography from '@material-ui/core/Typography'
 import MUIDataTable from "mui-datatables"
@@ -68,6 +69,16 @@ const SDGIndexTableHead = styled.th`
   }
 `
 
+const CityColumn = styled(Link)`
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`
+
 const customHead = ({index, sort, sortDirection, label}, sortColumn) => {
   const sortIndicator = (() => {
     switch(sortDirection) {
@@ -116,8 +127,8 @@ class CityIndex extends PureComponent {
           sort: true,
           sortDirection: null,
           customHeadRender: customHead,
-          customBodyRender: (value, tableMeta, updateValue) => {
-            return <span style={{fontWeight: '500', color: 'black'}}>{value}</span>
+          customBodyRender: (city, tableMeta, updateValue) => {
+            return <CityColumn to={city.url()}>{city.name}</CityColumn>
           },
         },
       },
@@ -133,8 +144,8 @@ class CityIndex extends PureComponent {
         name: "SDGs",
         options: {
           sort: false,
-          customBodyRender: (value, tableMeta, updateValue) => {
-            return <SDGBar sdgs={value}
+          customBodyRender: (sdgs, tableMeta, updateValue) => {
+            return <SDGBar sdgs={sdgs}
                            showTooltip={showTooltip}
                            hideTooltip={hideTooltip}/>
           },
@@ -160,7 +171,7 @@ class CityIndex extends PureComponent {
 
     const { cities } = this.props
     const data = cities && cities.map(city => {
-      return [city.name, city.region, city.sdgs, city.rank, city.score]
+      return [city, city.region, city.sdgs, city.rank, city.score]
     })
 
     return (

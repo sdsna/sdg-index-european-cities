@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { withRouter } from 'react-router-dom'
 import Container from '@material-ui/core/Container'
 import Popper from '@material-ui/core/Popper'
 import Typography from '@material-ui/core/Typography'
@@ -80,6 +81,12 @@ class Map extends PureComponent {
     };
   }
 
+  openCityDashboard = event => {
+    const url = event.currentTarget.getAttribute('data-url')
+
+    this.props.history.push(url)
+  }
+
   showTooltip = event => {
     const { currentTarget } = event;
 
@@ -110,12 +117,11 @@ class Map extends PureComponent {
           colorScheme={focus ? colorSchemeGoals : colorSchemeOverallScore} />
 
         <MapDisplay
-          cities={cities}
-          focus={focus}
-          colorSchemeGoals={colorSchemeGoals}
-          colorSchemeOverallScore={colorSchemeOverallScore}
+          openCityDashboard={this.openCityDashboard}
           showTooltip={this.showTooltip}
-          hideTooltip={this.hideTooltip} />
+          hideTooltip={this.hideTooltip}
+          {...{cities, focus, colorSchemeGoals, colorSchemeOverallScore}}
+           />
         <Tooltip
           open={tooltipShow}
           anchorEl={tooltipAnchor}
@@ -148,4 +154,4 @@ class Map extends PureComponent {
   }
 }
 
-export default Map
+export default withRouter(Map)

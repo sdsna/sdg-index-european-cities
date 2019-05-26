@@ -5,6 +5,7 @@ import styled from 'styled-components'
 const MapSvg = styled(SvgLoader)`
   #cities circle {
     transition: all .3s;
+    cursor: pointer;
 
     &:hover {
       stroke-width: 12;
@@ -48,7 +49,7 @@ class MapDisplay extends PureComponent {
   }
 
   render() {
-    const { focus, cities, showTooltip, hideTooltip } = this.props
+    const { focus, cities, showTooltip, hideTooltip, openCityDashboard } = this.props
 
     const proxies = cities && cities.map(city => {
       return <SvgProxy  key={city.name.toLowerCase()}
@@ -56,8 +57,10 @@ class MapDisplay extends PureComponent {
                         data-score={this.getCityScore(city, focus)}
                         data-label={this.getScoreLabel(city, focus)}
                         data-city={city.name}
+                        data-url={city.url()}
                         onMouseOver={showTooltip}
                         onMouseOut={hideTooltip}
+                        onClick={openCityDashboard}
                         fill={this.getCityColor(city, focus)}
                         r='20'
                          />
