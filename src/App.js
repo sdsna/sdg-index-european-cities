@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { HashRouter, Route, Link } from "react-router-dom";
 import AppBar from '@material-ui/core/AppBar'
+import Box from '@material-ui/core/Box'
 import ButtonBase from '@material-ui/core/ButtonBase'
 import Container from '@material-ui/core/Container'
+import Grid from '@material-ui/core/Grid'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import styled, { createGlobalStyle } from 'styled-components'
@@ -146,7 +148,7 @@ class App extends Component {
           focus={focus}
           cities={cities} />
 
-        <Container>
+        <Container style={{background: '#f8f9fa', position: 'relative'}}>
           <Route
             exact
             path="/"
@@ -168,6 +170,24 @@ class App extends Component {
                         resetMapFocus={this.resetMapFocus}
                         cities={cities} />
             }} />
+
+            <Grid container>
+              <Grid item md={6} sm={12}>
+                <Box padding={2}>
+                  <Typography variant='body2' style={{color: '#6c757d'}}>
+                    This dashboard demo for the European Cities SDG Index ideas
+                    modeled after the&nbsp;
+                    <a href='https://dashboards.sdgindex.org/' target='_blank' rel='noopener noreferrer'>
+                      dashboard for the Global SDG Index
+                    </a>
+                    . This website is for demo purposes and internal use only.
+                    All copyright belongs to the creators of the dashboard
+                    for the Global SDG Index.
+
+                  </Typography>
+                </Box>
+              </Grid>
+            </Grid>
         </Container>
         <GlobalStyle />
       </HashRouter>
