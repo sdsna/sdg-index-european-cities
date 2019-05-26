@@ -18,8 +18,8 @@ class CityPage extends Component {
     const { name, region } = city || {}
 
     return (
-      <Paper style={{padding: 24, position: 'relative'}}>
-        <Box marginBottom={2}>
+      <Paper style={{padding: 24, paddingTop: 16, position: 'relative'}}>
+        <Box marginBottom={2} paddingTop={1} style={{position: 'sticky', top: 0, background: 'white', zIndex: 100}}>
           <Link to='/' style={{float: 'right'}}>
             <Typography variant='body2'>
               Back to cities list
@@ -31,10 +31,8 @@ class CityPage extends Component {
           <Typography variant="h5" gutterBottom style={{color: '#6c757d'}}>
             {region}
           </Typography>
+          <Divider />
         </Box>
-
-
-        <Divider />
 
         <CurrentAssessmentSection
           {...{city, setMapFocus, resetMapFocus}}
