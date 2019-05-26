@@ -47,8 +47,8 @@ class MapLegend extends PureComponent {
 
     const items = colorScheme && colorScheme.map(option => {
       return (
-        <div key={option.color}>
-          <Color hex={option.hex} />
+        <div key={option.colorName}>
+          <Color hex={option.mapColor} />
           <Description variant='body1' component='span'>
             {option.description}
           </Description>

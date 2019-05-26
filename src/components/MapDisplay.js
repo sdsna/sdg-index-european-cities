@@ -30,17 +30,11 @@ class MapDisplay extends PureComponent {
       const { colorSchemeOverallScore } = this.props
       const option = colorSchemeOverallScore.find(option => score > option.threshold)
 
-      return option.hex || 'black'
+      return option.mapColor || 'black'
     }
     else {
-      // get the city's SDG
       const sdg = city.getSDG(focus)
-
-      // find the correct HEX value for that color from colorSchemeGoals
-      const { colorSchemeGoals } = this.props
-      const option = colorSchemeGoals.find(option => option.color === sdg.status)
-
-      return option.hex || 'black'
+      return sdg.mapStatusColor() || 'black'
     }
   }
 

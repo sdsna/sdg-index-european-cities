@@ -8,57 +8,36 @@ import SDG from '../models/SDG'
 import MapLegend from './MapLegend'
 import MapDisplay from './MapDisplay'
 
-const colorSchemeGoals = [{
-    color: 'green',
-    hex: '#009c00',
-    description: 'SDG achieved'
-  },{
-    color: 'yellow',
-    hex: '#ffea00',
-    description: 'Challenges remain'
-  },{
-    color: 'orange',
-    hex: '#ff7500',
-    description: 'Significant challenges remain'
-  },{
-    color: 'red',
-    hex: '#c90000',
-    description: 'Major challenges remain'
-  },{
-    color: 'gray',
-    hex: '#5a5a5a',
-    description: 'Data missing'
-  }
-]
+const colorSchemeGoals = SDG.colorScheme()
 
 const colorSchemeOverallScore = [{
-    color: 'green',
-    hex: '#009c00',
+    colorName: 'green',
+    mapColor: '#009c00',
     description: '> 70',
     threshold: 70
   },{
-    color: 'light-green',
-    hex: '#60e160',
+    colorName: 'light-green',
+    mapColor: '#60e160',
     description: '65 - 70',
     threshold: 65
   },{
-    color: 'lime',
-    hex: '#d5ff00',
+    colorName: 'lime',
+    mapColor: '#d5ff00',
     description: '60- 65',
     threshold: 60
   },{
-    color: 'yellow',
-    hex: '#ffea00',
+    colorName: 'yellow',
+    mapColor: '#ffea00',
     description: '55 - 60',
     threshold: 55
   },{
-    color: 'orange',
-    hex: '#ff7500',
+    colorName: 'orange',
+    mapColor: '#ff7500',
     description: '50 - 55',
     threshold: 50
   },{
-    color: 'red',
-    hex: '#c90000',
+    colorName: 'red',
+    mapColor: '#c90000',
     description: '< 50',
     threshold: 0
   }
