@@ -10,23 +10,23 @@ import SDGTile from '../components/SDGTile'
 class SDGTileCollection extends PureComponent {
   render() {
     const { resetMapFocus, setMapFocus,
-            columnsLG, columnsMD, columnsSM,
+            columnsMD, columnsSM, columnsXS,
             width, exclude, backgroundColor } = this.props
 
     let columns = null
 
     switch(width) {
       case 'xs':
+        columns = columnsXS
+        break
       case 'sm':
         columns = columnsSM
-        break;
+        break
       case 'md':
-        columns = columnsMD
-        break;
       case 'lg':
       case 'xl':
       default:
-        columns = columnsLG
+        columns = columnsMD
         break;
     }
 
