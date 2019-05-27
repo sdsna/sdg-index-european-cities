@@ -56,6 +56,9 @@ class CurrentAssessmentSection extends PureComponent {
             <Grid item xs={12} md={9}>
               <SDGTileCollection
                 columns={5}
+                columnsLG={5}
+                columnsMD={5}
+                columnsSM={3}
                 backgroundColor={(sdg) => {
                   return city && city.getSDG(sdg).tileStatusColor()
                 }}

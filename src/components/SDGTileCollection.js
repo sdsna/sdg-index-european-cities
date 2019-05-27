@@ -1,12 +1,32 @@
 import React, { PureComponent } from 'react'
 import GridList from '@material-ui/core/GridList'
+import withWidth from '@material-ui/core/withWidth'
 
 import SDGTile from '../components/SDGTile'
 
 
 class SDGTileCollection extends PureComponent {
   render() {
-    const { resetMapFocus, setMapFocus, columns, exclude, backgroundColor } = this.props
+    const { resetMapFocus, setMapFocus,
+            columnsLG, columnsMD, columnsSM,
+            width, exclude, backgroundColor } = this.props
+
+    let columns = null
+
+    switch(width) {
+      case 'xs':
+      case 'sm':
+        columns = columnsSM
+        break;
+      case 'md':
+        columns = columnsMD
+        break;
+      case 'lg':
+      case 'xl':
+      default:
+        columns = columnsLG
+        break;
+    }
 
     const goals1to17  = [...Array(17).keys()].map(goal => {
       return <SDGTile clickHandler={setMapFocus}
@@ -32,4 +52,4 @@ class SDGTileCollection extends PureComponent {
   }
 }
 
-export default SDGTileCollection
+export default withWidth()(SDGTileCollection)
