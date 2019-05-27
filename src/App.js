@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { HashRouter, Route, Link } from "react-router-dom";
 import AppBar from '@material-ui/core/AppBar'
-import Box from '@material-ui/core/Box'
 import ButtonBase from '@material-ui/core/ButtonBase'
 import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import styled, { createGlobalStyle } from 'styled-components'
+
 import HomePage from './pages/HomePage'
 import CityPage from './pages/CityPage'
 import Map from './components/Map'
+import Footer from './components/Footer'
 
 import loadCities from './helpers/loadCities'
 
@@ -142,6 +142,9 @@ class App extends Component {
               <ToolbarButton component='a' href="http://unsdsn.org/" target='_blank' rel='noopener noreferrer'>
                 <img src='/images/SDSN-logo.png' alt='SDSN logo' style={{maxHeight: 60}}/>
               </ToolbarButton>
+              <ToolbarButton component='a' href="http://www.telos.nl/" target='_blank' rel='noopener noreferrer'>
+                <img src='/images/telos-logo.png' alt='Telos logo' style={{maxHeight: 60}}/>
+              </ToolbarButton>
             </Hidden>
             </Toolbar>
           </Container>
@@ -174,23 +177,7 @@ class App extends Component {
                         cities={cities} />
             }} />
 
-            <Grid container>
-              <Grid item md={6} sm={12}>
-                <Box padding={2}>
-                  <Typography variant='body2' style={{color: '#6c757d'}}>
-                    This dashboard demo for the European Cities SDG Index ideas
-                    modeled after the&nbsp;
-                    <a href='https://dashboards.sdgindex.org/' target='_blank' rel='noopener noreferrer'>
-                      dashboard for the Global SDG Index
-                    </a>
-                    . This website is for demo purposes and internal use only.
-                    All copyright belongs to the creators of the dashboard
-                    for the Global SDG Index.
-
-                  </Typography>
-                </Box>
-              </Grid>
-            </Grid>
+            <Footer />
         </Container>
         <GlobalStyle />
       </HashRouter>
