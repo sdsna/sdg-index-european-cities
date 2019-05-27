@@ -131,10 +131,10 @@ class App extends Component {
           <Toolbar>
             <ToolbarButton component={Link} to="/">
               <Typography variant="h6" color="inherit">
-                European Cities SDG Index 2019
+                European Cities SDG Index
               </Typography>
               <Typography variant="body1" style={{color: '#6c757d'}} gutterBottom>
-                Prototype Version
+                Prototype Version (2019)
               </Typography>
             </ToolbarButton>
             <Hidden xsDown>
