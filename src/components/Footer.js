@@ -31,10 +31,21 @@ function Footer(props) {
         <Box padding={2}>
           <Typography variant='body2'>
 
-            This dashboard is based on the data, findings, and results from the
+            The data displayed in this dashboard is sourced from the
             {' '}
             <a href='https://www.sdgindex.org/news/2019/05/22/sdg-index-for-european-cities/' target='_blank' rel='noopener noreferrer'>
               SDG Index and Dashboards Report for European cities
+            </a>
+            . The report was prepared by the
+            {' '}
+            <a href="http://unsdsn.org/" target='_blank' rel='noopener noreferrer'>
+              Sustainable Development Solutions Network
+            </a>
+            {' '}
+            and the
+            {' '}
+            <a href="http://www.telos.nl/" target='_blank' rel='noopener noreferrer'>
+              Brabant Center for Sustainable Development
             </a>
             .
             <br/><br/>
