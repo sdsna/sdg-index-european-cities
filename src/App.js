@@ -5,6 +5,7 @@ import Box from '@material-ui/core/Box'
 import ButtonBase from '@material-ui/core/ButtonBase'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
+import Hidden from '@material-ui/core/Hidden'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import styled, { createGlobalStyle } from 'styled-components'
@@ -136,10 +137,12 @@ class App extends Component {
                 Prototype Version
               </Typography>
             </ToolbarButton>
-            <ToolbarButton style={{flexGrow: 1}} disabled/>
-            <ToolbarButton component='a' href="http://unsdsn.org/" target='_blank' rel='noopener noreferrer'>
-              <img src='/images/SDSN-logo.png' alt='SDSN logo' style={{maxHeight: 60}}/>
-            </ToolbarButton>
+            <Hidden xsDown>
+              <div style={{flexGrow: 1}} />
+              <ToolbarButton component='a' href="http://unsdsn.org/" target='_blank' rel='noopener noreferrer'>
+                <img src='/images/SDSN-logo.png' alt='SDSN logo' style={{maxHeight: 60}}/>
+              </ToolbarButton>
+            </Hidden>
             </Toolbar>
           </Container>
         </SiteHeader>
