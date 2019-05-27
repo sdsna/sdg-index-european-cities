@@ -61,14 +61,14 @@ function Footer(props) {
       </Grid>
       <Grid item md={3} sm={6} xs={12}>
         <Box padding={2}>
-          <a class='logo' href="http://unsdsn.org/" target='_blank' rel='noopener noreferrer'>
+          <a className='logo' href="http://unsdsn.org/" target='_blank' rel='noopener noreferrer'>
             <img src='/images/SDSN-logo.png' alt='SDSN logo' style={{maxHeight: 60}}/>
           </a>
         </Box>
       </Grid>
       <Grid item md={3} sm={6} xs={12}>
         <Box padding={2}>
-          <a class='logo' href="http://www.telos.nl/" target='_blank' rel='noopener noreferrer'>
+          <a className='logo' href="http://www.telos.nl/" target='_blank' rel='noopener noreferrer'>
             <img src='/images/telos-logo.png' alt='Telos logo' style={{maxHeight: 60}}/>
           </a>
         </Box>
