@@ -25,8 +25,8 @@ const Color = styled.span`
   line-height: 1rem;
   height: 1rem;
   border-radius: 100%;
-  height: 20px;
-  width: 20px;
+  height: 15px;
+  width: 15px;
   border: 2px solid ${props => props.stroke};
   margin-right: 8px;
   margin-top: 4px;
