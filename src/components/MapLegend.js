@@ -18,7 +18,7 @@ const Legend = styled(Card)`
 `
 
 const Color = styled.span`
-  background-color: ${props => props.hex};
+  background-color: ${props => props.fill};
   width: 40px;
   height: 24px;
   display: inline-block;
@@ -27,7 +27,7 @@ const Color = styled.span`
   border-radius: 100%;
   height: 20px;
   width: 20px;
-  border: 2px solid black;
+  border: 2px solid ${props => props.stroke};
   margin-right: 8px;
   margin-top: 4px;
   margin-bottom: 4px;
@@ -48,7 +48,7 @@ class MapLegend extends PureComponent {
     const items = colorScheme && colorScheme.map(option => {
       return (
         <div key={option.colorName}>
-          <Color hex={option.mapColor} />
+          <Color fill={option.mapColor} stroke={option.mapStrokeColor} />
           <Description variant='body1' component='span'>
             {option.description}
           </Description>

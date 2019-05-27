@@ -13,32 +13,38 @@ const colorSchemeGoals = SDG.colorScheme()
 
 const colorSchemeOverallScore = [{
     colorName: 'green',
-    mapColor: '#009c00',
+    mapColor: '#00c600',
+    mapStrokeColor: '#1c8634',
     description: '> 70',
     threshold: 70
   },{
     colorName: 'light-green',
-    mapColor: '#60e160',
+    mapColor: '#92e792',
+    mapStrokeColor: '#4fbd4f',
     description: '65 - 70',
     threshold: 65
   },{
     colorName: 'lime',
     mapColor: '#d5ff00',
+    mapStrokeColor: '#a2d400',
     description: '60- 65',
     threshold: 60
   },{
     colorName: 'yellow',
     mapColor: '#ffea00',
+    mapStrokeColor: '#f2bc3c',
     description: '55 - 60',
     threshold: 55
   },{
     colorName: 'orange',
     mapColor: '#ff7500',
+    mapStrokeColor: '#c35900',
     description: '50 - 55',
     threshold: 50
   },{
     colorName: 'red',
     mapColor: '#c90000',
+    mapStrokeColor: '#710000',
     description: '< 50',
     threshold: 0
   }

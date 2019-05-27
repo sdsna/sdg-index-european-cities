@@ -35,6 +35,22 @@ class MapDisplay extends PureComponent {
     }
   }
 
+  getCityStrokeColor(city, focus) {
+    if(focus === null) {
+      const score = city.score
+
+      // find the correct HEX value for the score from color scheme
+      const { colorSchemeOverallScore } = this.props
+      const option = colorSchemeOverallScore.find(option => score > option.threshold)
+
+      return option.mapStrokeColor || 'black'
+    }
+    else {
+      const sdg = city.getSDG(focus)
+      return sdg.mapStatusStrokeColor() || 'black'
+    }
+  }
+
   getCityColor(city, focus) {
     if(focus === null) {
       const score = city.score
@@ -74,7 +90,8 @@ class MapDisplay extends PureComponent {
                         onMouseOut={hideTooltip}
                         onClick={openCityDashboard}
                         fill={this.getCityColor(city, focus)}
-                        r='20'
+                        stroke={this.getCityStrokeColor(city, focus)}
+                        r='12'
                          />
     })
 
