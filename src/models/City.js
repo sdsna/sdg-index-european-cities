@@ -22,6 +22,10 @@ class City {
   url() {
     return `/${this.slug()}`
   }
+
+  localeCompare(otherCity) {
+    return this.name.localeCompare(otherCity.name)
+  }
 }
 
 export default City
