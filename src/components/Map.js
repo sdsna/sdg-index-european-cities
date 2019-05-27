@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { withRouter } from 'react-router-dom'
 import Container from '@material-ui/core/Container'
+import Hidden from '@material-ui/core/Hidden'
 import Popper from '@material-ui/core/Popper'
 import Typography from '@material-ui/core/Typography'
 import styled from 'styled-components'
@@ -118,9 +119,12 @@ class Map extends PureComponent {
 
     return(
       <Container style={{position: "sticky", top: 0}}>
-        <MapLegend
-          title={focus ? SDG.getLabel(focus) : 'SDG Index Score'}
-          colorScheme={focus ? colorSchemeGoals : colorSchemeOverallScore} />
+        { /* TODO: Display legend on mobile devices via tooltip button */ }
+        <Hidden smDown>
+          <MapLegend
+            title={focus ? SDG.getLabel(focus) : 'SDG Index Score'}
+            colorScheme={focus ? colorSchemeGoals : colorSchemeOverallScore} />
+        </Hidden>
 
         <MapDisplay
           openCityDashboard={this.openCityDashboard}
