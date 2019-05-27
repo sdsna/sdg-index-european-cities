@@ -61,7 +61,7 @@ const Tooltip = styled(Popper)`
   pointer-events: none;
   z-index: 1000;
 
-  &:after {
+  .arrow:after {
     box-sizing: border-box;
     display: inline;
     font-size: 10px;
@@ -158,6 +158,9 @@ class Map extends PureComponent {
               {tooltipScore}
             </span>
           </Typography>
+          <Hidden smDown>
+            <div className='arrow' />
+          </Hidden>
         </Tooltip>
       </Container>
     );
