@@ -86,7 +86,7 @@ class HomePage extends PureComponent {
             Sustainable Development Goals
           </Typography>
           <Typography variant='body1' style={{color: '#6c757d'}} gutterBottom>
-            Select one of the 15 SDGs to see it on the map
+            Select one of the SDGs to see it on the map
             {focus ? resetFocus : null}
             .
           </Typography>
