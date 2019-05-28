@@ -60,7 +60,14 @@ function Footer(props) {
             <a href='https://twitter.com/FinnWoelm' target='_blank' rel='noopener noreferrer'>
               @FinnWoelm
             </a>
-            . If you have
+            {' '}
+            in collaboration with the
+            {' '}
+            <a href='https://www.sdgindex.org/' target='_blank' rel='noopener noreferrer'>
+              SDG Index
+            </a>
+            {' '}
+            team. If you have
             comments, suggestions, or find an inaccuracy, please
             {' '}
             <a href='https://twitter.com/FinnWoelm' target='_blank' rel='noopener noreferrer'>
