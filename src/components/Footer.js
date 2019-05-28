@@ -51,7 +51,7 @@ function Footer(props) {
             <br/><br/>
             This website is an
             {' '}
-            <a href='https://github.com/FinnWoelm/sdg-index-european-cities' target='_blank' rel='noopener noreferrer'>
+            <a href="https://github.com/sdsna/sdg-index-european-cities" target='_blank' rel='noopener noreferrer'>
               open source passion project
             </a>
             {' '}
