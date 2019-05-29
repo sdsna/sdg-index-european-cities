@@ -2,7 +2,7 @@
   "name": "sdg-index-european-cities",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://european-cities-sdg-index.finnwoelm.com/",
+  "homepage": "https://euro-cities.sdgindex.org/",
   "dependencies": {
     "@material-ui/core": "^4.0.0",
     "@material-ui/icons": "^4.0.0",
